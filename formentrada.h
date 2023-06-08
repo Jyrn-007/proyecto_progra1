@@ -53,7 +53,7 @@ namespace proyfereteria {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::ColumnHeader^ ID_del_proveedor;
@@ -68,6 +68,8 @@ namespace proyfereteria {
 	private: System::Windows::Forms::ColumnHeader^ Precio_unitario_costo;
 	private: System::Windows::Forms::ColumnHeader^ precio_unitario_venta;
 	private: System::Windows::Forms::ColumnHeader^ Descripcion;
+	private: System::Windows::Forms::ComboBox^ ID_proveedor;
+
 
 
 	private:
@@ -100,7 +102,6 @@ namespace proyfereteria {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -111,6 +112,7 @@ namespace proyfereteria {
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->ID_proveedor = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
 			// listView1
@@ -123,7 +125,7 @@ namespace proyfereteria {
 					this->precio_unitario_venta, this->Descripcion
 			});
 			this->listView1->HideSelection = false;
-
+			this->listView1->Location = System::Drawing::Point(49, 245);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(985, 191);
 			this->listView1->TabIndex = 29;
@@ -240,7 +242,7 @@ namespace proyfereteria {
 			this->label1->Location = System::Drawing::Point(206, 53);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-
+			this->label1->Size = System::Drawing::Size(86, 13);
 			this->label1->TabIndex = 21;
 			this->label1->Text = L"ID del proveedor";
 			// 
@@ -253,17 +255,6 @@ namespace proyfereteria {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(185, 20);
 			this->textBox2->TabIndex = 20;
-			// 
-			// textBox1
-			// 
-			this->textBox1->BackColor = System::Drawing::Color::Silver;
-			this->textBox1->Location = System::Drawing::Point(323, 47);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(185, 20);
-			this->textBox1->TabIndex = 19;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &formentrada::textBox1_TextChanged);
 			// 
 			// label5
 			// 
@@ -317,7 +308,7 @@ namespace proyfereteria {
 			// textBox6
 			// 
 			this->textBox6->BackColor = System::Drawing::Color::Silver;
-			this->textBox6->Location = System::Drawing::Point(674, 120);
+			this->textBox6->Location = System::Drawing::Point(674, 115);
 			this->textBox6->Margin = System::Windows::Forms::Padding(2);
 			this->textBox6->Multiline = true;
 			this->textBox6->Name = L"textBox6";
@@ -364,12 +355,22 @@ namespace proyfereteria {
 			this->textBox8->Size = System::Drawing::Size(185, 20);
 			this->textBox8->TabIndex = 37;
 			// 
+			// ID_proveedor
+			// 
+			this->ID_proveedor->FormattingEnabled = true;
+			this->ID_proveedor->Location = System::Drawing::Point(323, 44);
+			this->ID_proveedor->Name = L"ID_proveedor";
+			this->ID_proveedor->Size = System::Drawing::Size(121, 21);
+			this->ID_proveedor->TabIndex = 39;
+			this->ID_proveedor->SelectedIndexChanged += gcnew System::EventHandler(this, &formentrada::ID_proveedor_SelectedIndexChanged);
+			// 
 			// formentrada
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-
+			this->ClientSize = System::Drawing::Size(1370, 749);
+			this->Controls->Add(this->ID_proveedor);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->label8);
@@ -389,7 +390,6 @@ namespace proyfereteria {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
 			this->MaximizeBox = false;
 			this->Name = L"formentrada";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -401,11 +401,36 @@ namespace proyfereteria {
 		}
 #pragma endregion
 	private: System::Void formentrada_Load(System::Object^ sender, System::EventArgs^ e) {
+		ID_proveedor->Text = "ID_proveedor";
+		String^ columna = "COD_PROVEEDOR";
+		String^ tabla = "PROVEEDOR";
+
+		conexion cldatos;
+		cldatos.FormarListas(
+			columna,
+			tabla,
+			ID_proveedor
+		);
+
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ PrecioU = textBox5->Text;
+	String^ PrecioV = textBox6->Text;
 
+	conexion cldatos;
+	cldatos.IngresoProducto(
+
+		textBox2->Text,
+		textBox3->Text,
+		Convert:: ToSingle(PrecioU),
+		textBox7->Text,
+		Convert::ToSingle(PrecioV)
+	);
+	MessageBox::Show("Registro guardado exitosamente");
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void ID_proveedor_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

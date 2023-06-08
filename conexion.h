@@ -24,29 +24,32 @@ protected:
         cn = gcnew SqlConnection(Convert::ToString(st));
     }
 public:
-    void IngresoProducto(String^ Cod_producto, String^ fecha, float^ precioUnitario, String^ codProducto, String^ descripcion, float ventaUnitario) {
+    void IngresoProducto(String^ Cod_producto, String^ fecha, float^ precioUnitario, String^ descripcion, float^ ventaUnitario) {
         Conectar();
-        String^ sentencia = "Insert into PRODUCTOS values(@COD_PRODUCTO, @FECHA, @PRECIO_U_COMPRA, @PRECIO_U_VENTA)";
+        String^ sentencia = "Insert into PRODUCTOS (COD_PRODUCTO, PRECIO_U_COMPRA, PRECIO_U_VENTA, DESCRIPCION, FECHA) values(@COD_PRODUCTO, @PRECIO_U_COMPRA, @PRECIO_U_VENTA, @DESCRIPCION, @FECHA)";
         SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
         ejecutar->Parameters->AddWithValue("@COD_PRODUCTO", Cod_producto);
-        ejecutar->Parameters->AddWithValue("@FECHA", fecha);
         ejecutar->Parameters->AddWithValue("@PRECIO_U_COMPRA", precioUnitario);
         ejecutar->Parameters->AddWithValue("@PRECIO_U_VENTA", ventaUnitario);
+        ejecutar->Parameters->AddWithValue("@DESCRIPCION", descripcion);
+        ejecutar->Parameters->AddWithValue("@FECHA", fecha);
         cn->Open();
         ejecutar->ExecuteNonQuery();
         cn->Close();
     }
-//    void Insertar2(int id_producto, String^ desc, float precio) {
-//        Conectar();
-//        String^ sentencia = "Insert into PRODUCTO values(@id_producto, @desc, @precio)";
-//        SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
-//        ejecutar->Parameters->AddWithValue("@id_producto", id_producto);
-//        ejecutar->Parameters->AddWithValue("@desc", desc);
-//        ejecutar->Parameters->AddWithValue("@precio", precio);
-//        cn->Open();
-//        ejecutar->ExecuteNonQuery();
-//        cn->Close();
-//    }
+    void FormarListas(String^ Columna, String^ Tabla, ComboBox^ comboBox)
+    {
+        Conectar();
+        String^ sentencia = "SELECT " + Columna + " FROM " + Tabla;
+        SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
+        cn->Open();
+        SqlDataReader^ registro = ejecutar->ExecuteReader();
+        while (registro->Read())
+        {
+            comboBox->Items->Add(registro[Columna]->ToString());
+        }
+        cn->Close();
+    }
 //    void Insertar3(int id_venta, int cantidad, int id_cliente, int id_producto) {
 //        Conectar();
 //        String^ sentencia = "Insert into VENTA values(@id_venta, @cantidad, @id_cliente, @id_producto)";
