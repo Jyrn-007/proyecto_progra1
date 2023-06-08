@@ -1,0 +1,7 @@
+Empleados	administradores		Productos	Provedores	  Inventario
+Nom.U		Nom.U				Cod.		Nom.P	         codigo
+Password	Password			Categoria	ID.	         producto
+Nom.P		Nom.P				Proveedor	Nom.          Categoria
+ID.		ID				Cant                     precio
+Tel.		Correo.			precio
+		Tel.
