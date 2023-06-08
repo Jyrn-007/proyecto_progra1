@@ -122,12 +122,13 @@ namespace proyfereteria {
 					this->precio_unitario_venta, this->Descripcion
 			});
 			this->listView1->HideSelection = false;
-			this->listView1->Location = System::Drawing::Point(12, 400);
+			this->listView1->Location = System::Drawing::Point(44, 399);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(1477, 294);
 			this->listView1->TabIndex = 29;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
+			this->listView1->VirtualMode = true;
 			// 
 			// Nombre_del_Producto
 			// 
@@ -230,9 +231,9 @@ namespace proyfereteria {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(309, 82);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(155, 20);
+			this->label1->Size = System::Drawing::Size(126, 20);
 			this->label1->TabIndex = 21;
-			this->label1->Text = L"nombre del producto";
+			this->label1->Text = L"ID del proveedor";
 			// 
 			// textBox2
 			// 
@@ -346,6 +347,7 @@ namespace proyfereteria {
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
+			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(1572, 747);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->textBox8);
@@ -367,6 +369,7 @@ namespace proyfereteria {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
+			this->MaximizeBox = false;
 			this->Name = L"formentrada";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"formentrada";

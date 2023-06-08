@@ -1,6 +1,7 @@
 #pragma once
 #include"formentrada.h"
 #include"formsalida.h"
+#include "proveedores.h"
 namespace proyfereteria {
 
 	using namespace System;
@@ -127,6 +128,7 @@ namespace proyfereteria {
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox3->TabIndex = 14;
 			this->pictureBox3->TabStop = false;
+			this->pictureBox3->Click += gcnew System::EventHandler(this, &iniciousempleados::pictureBox3_Click);
 			// 
 			// pictureBox1
 			// 
@@ -167,6 +169,7 @@ namespace proyfereteria {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->pictureBox1);
+			this->MaximizeBox = false;
 			this->Name = L"iniciousempleados";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"iniciousempleados";
@@ -196,6 +199,12 @@ private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArg
 	this->Visible = true;
 
 
+}
+private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
+	proyfereteria::proveedores^ m = gcnew proyfereteria::proveedores();
+	this->Visible = false;
+	m->ShowDialog();
+	this->Visible = true;
 }
 };
 }
