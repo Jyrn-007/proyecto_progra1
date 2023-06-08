@@ -36,15 +36,21 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="proveedores.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="contacto.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="servicios.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inicio.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="login.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="iniciousuario.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="confus.h">
@@ -62,7 +68,14 @@
     <ClInclude Include="MyForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="conexion.h">
+=======
+    <ClInclude Include="proveedores.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="contacto.h">
+>>>>>>> 86e823322b22d7431cfb87a6fdc854d0e6569bb1
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -122,16 +122,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="confus.cpp" />
+    <ClCompile Include="contacto.cpp" />
     <ClCompile Include="formentrada.cpp" />
     <ClCompile Include="formsalida.cpp" />
     <ClCompile Include="inicio.cpp" />
     <ClCompile Include="iniciousuario.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="proveedores.cpp" />
+    <ClCompile Include="servicios.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="conexion.h" />
     <ClInclude Include="confus.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="contacto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="formentrada.h">
@@ -146,19 +152,22 @@
     <ClInclude Include="iniciousempleados.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="iniciousuario.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="proveedores.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="confus.resx">
       <DependentUpon>confus.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="contacto.resx">
+      <DependentUpon>contacto.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formentrada.resx">
       <DependentUpon>formentrada.h</DependentUpon>
@@ -172,14 +181,14 @@
     <EmbeddedResource Include="iniciousempleados.resx">
       <DependentUpon>iniciousempleados.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="iniciousuario.resx">
-      <DependentUpon>iniciousuario.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="proveedores.resx">
+      <DependentUpon>proveedores.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

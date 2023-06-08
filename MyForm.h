@@ -1,5 +1,6 @@
 #pragma once
 #include "iniciousempleados.h"
+#include "contacto.h"
 namespace proyfereteria {
 
 	using namespace System;
@@ -38,7 +39,7 @@ namespace proyfereteria {
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
@@ -61,7 +62,6 @@ namespace proyfereteria {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -70,14 +70,14 @@ namespace proyfereteria {
 			// 
 			// label1
 			// 
-			this->label1->BackColor = System::Drawing::Color::Black;
+			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->label1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->label1->Location = System::Drawing::Point(116, 22);
+			this->label1->Location = System::Drawing::Point(116, 53);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(987, 69);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"label1";
 			// 
 			// button1
 			// 
@@ -88,7 +88,7 @@ namespace proyfereteria {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(938, 32);
+			this->button1->Location = System::Drawing::Point(938, 63);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(129, 41);
 			this->button1->TabIndex = 1;
@@ -104,26 +104,13 @@ namespace proyfereteria {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(606, 32);
+			this->button2->Location = System::Drawing::Point(167, 63);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(196, 50);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Contacto";
 			this->button2->UseVisualStyleBackColor = false;
-			// 
-			// button3
-			// 
-			this->button3->BackColor = System::Drawing::Color::Black;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button3->ForeColor = System::Drawing::Color::White;
-			this->button3->Location = System::Drawing::Point(246, 32);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(196, 50);
-			this->button3->TabIndex = 3;
-			this->button3->Text = L"Servicios";
-			this->button3->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// label2
 			// 
@@ -131,11 +118,11 @@ namespace proyfereteria {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(514, 174);
+			this->label2->Location = System::Drawing::Point(501, 171);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(230, 78);
+			this->label2->Size = System::Drawing::Size(306, 78);
 			this->label2->TabIndex = 4;
-			this->label2->Text = L"Construinfo";
+			this->label2->Text = L"CONSTRUINFO";
 			// 
 			// label3
 			// 
@@ -157,7 +144,7 @@ namespace proyfereteria {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::Red;
-			this->label4->Location = System::Drawing::Point(293, 159);
+			this->label4->Location = System::Drawing::Point(280, 156);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(230, 78);
 			this->label4->TabIndex = 6;
@@ -170,7 +157,7 @@ namespace proyfereteria {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::Red;
-			this->label5->Location = System::Drawing::Point(702, 159);
+			this->label5->Location = System::Drawing::Point(752, 156);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(230, 78);
 			this->label5->TabIndex = 7;
@@ -187,10 +174,11 @@ namespace proyfereteria {
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -211,6 +199,12 @@ private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	Opacity = 1;
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	proyfereteria::contacto^ m = gcnew proyfereteria::contacto();
+	this->Visible = false;
+	m->ShowDialog();
+	this->Visible = true;
 }
 };
 }
