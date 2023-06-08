@@ -130,6 +130,7 @@
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="conexion.h" />
     <ClInclude Include="confus.h">
       <FileType>CppForm</FileType>
     </ClInclude>
