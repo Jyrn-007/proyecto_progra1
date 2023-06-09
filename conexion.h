@@ -24,11 +24,12 @@ protected:
         cn = gcnew SqlConnection(Convert::ToString(st));
     }
 public:
-    void IngresoProducto(String^ Cod_producto, String^ fecha, float^ precioUnitario, String^ descripcion, float^ ventaUnitario) {
+    void IngresoProducto(String^ Cod_producto, String^ Cod_Proveedor, String^ fecha, float^ precioUnitario, String^ descripcion, float^ ventaUnitario) {
         Conectar();
-        String^ sentencia = "Insert into PRODUCTOS (COD_PRODUCTO, PRECIO_U_COMPRA, PRECIO_U_VENTA, DESCRIPCION, FECHA) values(@COD_PRODUCTO, @PRECIO_U_COMPRA, @PRECIO_U_VENTA, @DESCRIPCION, @FECHA)";
+        String^ sentencia = "Insert into PRODUCTOS (COD_PRODUCTO, COD_PROV, PRECIO_U_COMPRA, PRECIO_U_VENTA, DESCRIPCION, FECHA) values(@COD_PRODUCTO, @COD_PROV, @PRECIO_U_COMPRA, @PRECIO_U_VENTA, @DESCRIPCION, @FECHA)";
         SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
         ejecutar->Parameters->AddWithValue("@COD_PRODUCTO", Cod_producto);
+        ejecutar->Parameters->AddWithValue("@COD_PROV", Cod_Proveedor);
         ejecutar->Parameters->AddWithValue("@PRECIO_U_COMPRA", precioUnitario);
         ejecutar->Parameters->AddWithValue("@PRECIO_U_VENTA", ventaUnitario);
         ejecutar->Parameters->AddWithValue("@DESCRIPCION", descripcion);

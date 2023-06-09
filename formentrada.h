@@ -401,7 +401,6 @@ namespace proyfereteria {
 		}
 #pragma endregion
 	private: System::Void formentrada_Load(System::Object^ sender, System::EventArgs^ e) {
-		ID_proveedor->Text = "ID_proveedor";
 		String^ columna = "COD_PROVEEDOR";
 		String^ tabla = "PROVEEDOR";
 
@@ -412,6 +411,8 @@ namespace proyfereteria {
 			ID_proveedor
 		);
 
+		
+
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ PrecioU = textBox5->Text;
@@ -421,11 +422,15 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	cldatos.IngresoProducto(
 
 		textBox2->Text,
+		ID_proveedor->Text->ToString(),
 		textBox3->Text,
 		Convert:: ToSingle(PrecioU),
 		textBox7->Text,
 		Convert::ToSingle(PrecioV)
+
 	);
+
+	textBox8->Text = ID_proveedor->Text;
 	MessageBox::Show("Registro guardado exitosamente");
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
