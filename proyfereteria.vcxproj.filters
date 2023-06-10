@@ -1,82 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="confus.cpp" />
+    <ClCompile Include="contacto.cpp" />
+    <ClCompile Include="formentrada.cpp" />
+    <ClCompile Include="formsalida.cpp" />
+    <ClCompile Include="inicio.cpp" />
+    <ClCompile Include="iniciousuario.cpp" />
+    <ClCompile Include="login.cpp" />
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="proveedores.cpp" />
+    <ClCompile Include="servicios.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="inicio.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="login.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="iniciousuario.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="confus.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="formsalida.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="formentrada.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="proveedores.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="contacto.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="servicios.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="inicio.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="login.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="confus.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="iniciousempleados.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="formsalida.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="formentrada.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="MyForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="conexion.h">
-=======
-    <ClInclude Include="proveedores.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="contacto.h">
->>>>>>> 86e823322b22d7431cfb87a6fdc854d0e6569bb1
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <ClInclude Include="conexion.h" />
+    <ClInclude Include="confus.h" />
+    <ClInclude Include="contacto.h" />
+    <ClInclude Include="formentrada.h" />
+    <ClInclude Include="formsalida.h" />
+    <ClInclude Include="inicio.h" />
+    <ClInclude Include="iniciousempleados.h" />
+    <ClInclude Include="login.h" />
+    <ClInclude Include="MyForm.h" />
+    <ClInclude Include="proveedores.h" />
   </ItemGroup>
 </Project>

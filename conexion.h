@@ -51,6 +51,36 @@ public:
         }
         cn->Close();
     }
+    float ObtenerPrecio(String^ Cod_producto) {
+        Conectar();
+        String^ sentencia = "SELECT PRECIO_U_VENTA FROM PRODUCTOS WHERE COD_PRODUCTO = '" + Cod_producto + "'";
+        SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
+        cn->Open();
+        SqlDataReader^ registro = ejecutar->ExecuteReader();
+        float precio = 0.0; // Inicializa el precio con un valor predeterminado
+
+        if (registro->Read()) {
+            precio = float::Parse(registro["PRECIO_U_VENTA"]->ToString());
+        }
+
+        cn->Close();
+        return precio;
+    }
+
+    void AgregarCliente(String^ NombreCliente, String^ Telefono, String^ fecha, String^ Nit, float^ TotalVenta) {
+        Conectar();
+        String^ sentencia = "Insert into VENTA_ENCABEZADO (NOMBRE_CLIENTE, TELEFONO, FECHA, NIT, TOTAL_VENTA) values(@NOMBRE_CLIENTE, @TELEFONO, @FECHA, @NIT, @TOTAL_VENTA)";
+        SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
+        ejecutar->Parameters->AddWithValue("@NOMBRE_CLIENTE", NombreCliente);
+        ejecutar->Parameters->AddWithValue("@TELEFONO", Telefono);
+        ejecutar->Parameters->AddWithValue("@FECHA", fecha);
+        ejecutar->Parameters->AddWithValue("@NIT", Nit);
+        ejecutar->Parameters->AddWithValue("@TOTAL_VENTA", TotalVenta);
+        cn->Open();
+        ejecutar->ExecuteNonQuery();
+        cn->Close();
+    }
+
 //    void Insertar3(int id_venta, int cantidad, int id_cliente, int id_producto) {
 //        Conectar();
 //        String^ sentencia = "Insert into VENTA values(@id_venta, @cantidad, @id_cliente, @id_producto)";

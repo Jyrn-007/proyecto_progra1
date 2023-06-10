@@ -35,13 +35,15 @@ namespace proyfereteria {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::ListView^ listView1;
+	private: System::Windows::Forms::ListView^ Listado;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::ColumnHeader^ Nombre_del_Producto;
 	private: System::Windows::Forms::ColumnHeader^ codigo_del_producto;
 	private: System::Windows::Forms::ColumnHeader^ fecha_de_entrada;
 
-	private: System::Windows::Forms::ColumnHeader^ Nombre_del_proveedor;
+
 
 
 	private: System::Windows::Forms::Button^ button2;
@@ -67,8 +69,9 @@ namespace proyfereteria {
 	private: System::Windows::Forms::TextBox^ textBox8;
 	private: System::Windows::Forms::ColumnHeader^ Precio_unitario_costo;
 	private: System::Windows::Forms::ColumnHeader^ precio_unitario_venta;
-	private: System::Windows::Forms::ColumnHeader^ Descripcion;
+
 	private: System::Windows::Forms::ComboBox^ ID_proveedor;
+	private: System::Windows::Forms::ColumnHeader^ Nombre_del_proveedor;
 
 
 
@@ -85,7 +88,7 @@ namespace proyfereteria {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->listView1 = (gcnew System::Windows::Forms::ListView());
+			this->Listado = (gcnew System::Windows::Forms::ListView());
 			this->Nombre_del_Producto = (gcnew System::Windows::Forms::ColumnHeader());
 			this->codigo_del_producto = (gcnew System::Windows::Forms::ColumnHeader());
 			this->fecha_de_entrada = (gcnew System::Windows::Forms::ColumnHeader());
@@ -93,7 +96,6 @@ namespace proyfereteria {
 			this->ID_del_proveedor = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Precio_unitario_costo = (gcnew System::Windows::Forms::ColumnHeader());
 			this->precio_unitario_venta = (gcnew System::Windows::Forms::ColumnHeader());
-			this->Descripcion = (gcnew System::Windows::Forms::ColumnHeader());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -115,23 +117,22 @@ namespace proyfereteria {
 			this->ID_proveedor = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
 			// 
-			// listView1
+			// Listado
 			// 
-			this->listView1->AutoArrange = false;
-			this->listView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(8) {
+			this->Listado->AutoArrange = false;
+			this->Listado->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->Listado->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(7) {
 				this->Nombre_del_Producto,
 					this->codigo_del_producto, this->fecha_de_entrada, this->Nombre_del_proveedor, this->ID_del_proveedor, this->Precio_unitario_costo,
-					this->precio_unitario_venta, this->Descripcion
+					this->precio_unitario_venta
 			});
-			this->listView1->HideSelection = false;
-			this->listView1->Location = System::Drawing::Point(49, 245);
-			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(985, 191);
-			this->listView1->TabIndex = 29;
-			this->listView1->UseCompatibleStateImageBehavior = false;
-			this->listView1->View = System::Windows::Forms::View::Details;
-			this->listView1->VirtualMode = true;
+			this->Listado->HideSelection = false;
+			this->Listado->Location = System::Drawing::Point(49, 245);
+			this->Listado->Name = L"Listado";
+			this->Listado->Size = System::Drawing::Size(985, 191);
+			this->Listado->TabIndex = 29;
+			this->Listado->UseCompatibleStateImageBehavior = false;
+			this->Listado->View = System::Windows::Forms::View::Details;
 			// 
 			// Nombre_del_Producto
 			// 
@@ -151,7 +152,7 @@ namespace proyfereteria {
 			// Nombre_del_proveedor
 			// 
 			this->Nombre_del_proveedor->Text = L"Nombre del proveedor";
-			this->Nombre_del_proveedor->Width = 202;
+			this->Nombre_del_proveedor->Width = 152;
 			// 
 			// ID_del_proveedor
 			// 
@@ -168,11 +169,6 @@ namespace proyfereteria {
 			this->precio_unitario_venta->Text = L"Precio unitario de venta";
 			this->precio_unitario_venta->Width = 133;
 			// 
-			// Descripcion
-			// 
-			this->Descripcion->Text = L"Descripcion";
-			this->Descripcion->Width = 181;
-			// 
 			// button2
 			// 
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -183,6 +179,7 @@ namespace proyfereteria {
 			this->button2->TabIndex = 28;
 			this->button2->Text = L"consultar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &formentrada::button2_Click);
 			// 
 			// button1
 			// 
@@ -229,7 +226,7 @@ namespace proyfereteria {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(576, 62);
+			this->label2->Location = System::Drawing::Point(562, 62);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(101, 13);
@@ -249,7 +246,7 @@ namespace proyfereteria {
 			// textBox2
 			// 
 			this->textBox2->BackColor = System::Drawing::Color::Silver;
-			this->textBox2->Location = System::Drawing::Point(679, 55);
+			this->textBox2->Location = System::Drawing::Point(677, 59);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
@@ -308,7 +305,7 @@ namespace proyfereteria {
 			// textBox6
 			// 
 			this->textBox6->BackColor = System::Drawing::Color::Silver;
-			this->textBox6->Location = System::Drawing::Point(674, 115);
+			this->textBox6->Location = System::Drawing::Point(677, 115);
 			this->textBox6->Margin = System::Windows::Forms::Padding(2);
 			this->textBox6->Multiline = true;
 			this->textBox6->Name = L"textBox6";
@@ -318,17 +315,17 @@ namespace proyfereteria {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(601, 150);
+			this->label8->Location = System::Drawing::Point(555, 151);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(63, 13);
+			this->label8->Size = System::Drawing::Size(107, 13);
 			this->label8->TabIndex = 36;
-			this->label8->Text = L"Descripcion";
+			this->label8->Text = L"Nombre del Producto";
 			// 
 			// textBox7
 			// 
 			this->textBox7->BackColor = System::Drawing::Color::Silver;
-			this->textBox7->Location = System::Drawing::Point(674, 144);
+			this->textBox7->Location = System::Drawing::Point(677, 144);
 			this->textBox7->Margin = System::Windows::Forms::Padding(2);
 			this->textBox7->Multiline = true;
 			this->textBox7->Name = L"textBox7";
@@ -380,7 +377,7 @@ namespace proyfereteria {
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->listView1);
+			this->Controls->Add(this->Listado);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label4);
@@ -437,5 +434,53 @@ private: System::Void textBox1_TextChanged(System::Object^ sender, System::Event
 }
 private: System::Void ID_proveedor_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	SqlConnection^ cn;
+	SqlConnectionStringBuilder^ st;
+	String^ Cod_producto; String^ Cod_Proveedor; String^ fecha;
+	String^ precioUnitario; String^ descripcion; String^ ventaUnitario; String^ NomProv;
+	st = gcnew SqlConnectionStringBuilder();
+	st->DataSource = "localhost\\SQLEXPRESS";
+	st->InitialCatalog = "CONSTRUINFO";//su base de datos se llama Biosisemas
+	st->IntegratedSecurity = true;
+	cn = gcnew SqlConnection(Convert::ToString(st));
+	ListView^ Bio = gcnew ListView();
+	String^ sentencia = "SELECT PRODUCTOS.COD_PRODUCTO, PRODUCTOS.COD_PROV, PRODUCTOS.DESCRIPCION, PRODUCTOS.FECHA, PRODUCTOS.PRECIO_U_COMPRA, PRODUCTOS.PRECIO_U_VENTA, PROVEEDOR.NOMBRE_REPARTIDOR FROM PRODUCTOS JOIN PROVEEDOR ON PRODUCTOS.COD_PROV = PROVEEDOR.COD_PROVEEDOR";
+	SqlCommand^ ejecutar = gcnew SqlCommand(sentencia, cn);
+	cn->Open();
+	SqlDataReader^ reader = ejecutar->ExecuteReader();
+	while (reader->Read())
+	{
+		Cod_producto = (reader["COD_PRODUCTO"]->ToString());
+		Cod_Proveedor = (reader["COD_PROV"]->ToString());
+		descripcion = (reader["DESCRIPCION"]->ToString());
+		fecha = (reader["FECHA"]->ToString());
+		precioUnitario = (reader["PRECIO_U_COMPRA"]->ToString());
+		ventaUnitario = (reader["PRECIO_U_VENTA"]->ToString());
+		NomProv = (reader["NOMBRE_REPARTIDOR"]->ToString());
+		String^ srtNew2 = gcnew String(Cod_producto);
+		String^ srtNew5 = gcnew String(Cod_Proveedor);
+		String^ srtNew1 = gcnew String(descripcion);
+		String^ srtNew3 = gcnew String(fecha);
+		String^ srtNew6 = gcnew String(precioUnitario);
+		String^ srtNew7 = gcnew String(ventaUnitario);
+		String^ srtNew4 = gcnew String(NomProv);
+		
+		
+		ListViewItem^ listView1 = gcnew Windows::Forms::ListViewItem(srtNew1);
+		
+		listView1->SubItems->Add(srtNew2);
+		listView1->SubItems->Add(srtNew3);
+		listView1->SubItems->Add(srtNew4);
+		listView1->SubItems->Add(srtNew5);
+		listView1->SubItems->Add(srtNew6);
+		listView1->SubItems->Add(srtNew7);
+		this->Listado->Items->Add(listView1);
+	}
+	cn->Close();
+}
+
 };
 }
